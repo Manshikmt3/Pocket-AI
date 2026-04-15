@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ArrowRight, Brain, Shield, Wallet, Zap } from "lucide-react";
+import { ArrowRight, Brain, Shield, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Navbar } from "@/components/Navbar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -34,33 +35,7 @@ const features = [
 export default function LandingPage() {
   return (
     <div className="min-h-screen" style={{ background: "var(--gradient-dark)" }}>
-      <nav className="flex items-center justify-between px-6 py-4 md:px-12">
-        <div className="flex items-center gap-2">
-          <Wallet className="h-7 w-7 text-primary" />
-          <span className="text-xl font-bold text-foreground">Wallet AI</span>
-        </div>
-        <div className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-          <Link href="/about" className="hover:text-foreground">
-            About
-          </Link>
-          <Link href="/premium" className="hover:text-foreground">
-            Premium
-          </Link>
-          <Link href="/contact" className="hover:text-foreground">
-            Contact
-          </Link>
-        </div>
-        <div className="flex items-center gap-3">
-          <Link href="/auth/login">
-            <Button variant="ghost" size="sm">
-              Sign In
-            </Button>
-          </Link>
-          <Link href="/auth/signup">
-            <Button size="sm">Get Started</Button>
-          </Link>
-        </div>
-      </nav>
+      <Navbar />
 
       <section className="mx-auto max-w-5xl px-6 pt-20 pb-16 text-center md:pt-32">
         <div className="animate-fade-in">

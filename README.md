@@ -1,67 +1,41 @@
-# 💰  POCKET-AI -Smart Finance Management Platform #
- 💰 A full-stack AI-powered personal finance platform. Track income and expenses, set budgets, visualize spending trends, and get AI-driven insights — all in a secure, real-time dashboard.
+# Pocket AI — Next.js App Router
 
- # 🚀  core features #
- 📊 Dashboard
-Real-time overview of balance, income vs expenses, and budget health.
+Production-ready migration of the Pocket AI finance app to Next.js (App Router) with Tailwind CSS, shadcn/ui, and Supabase.
 
-💸 Transactions
-Log, categorize, and filter income and expense entries by date or type.
+## Setup
 
-📋 Budget Manager
-Set monthly spending limits per category with live usage tracking.
+1. Install dependencies
 
-📈 Reports
-Interactive charts (Recharts) for spending trends and category breakdowns.
+```bash
+npm install
+```
 
-🤖 AI Insights
-Groq-powered assistant for spending analysis, budget advice, and queries.
+2. Configure environment variables
 
-🔐 Auth & Guards
-Supabase Auth with middleware-protected routes and redirect handling.
+Create a `.env.local` file:
 
-👤 User Profile
-Manage account details and preferences on the profile page.
+```
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+OPENAI_API_KEY=your_openai_api_key
+OPENAI_MODEL=gpt-4o-mini
+```
 
-📬Contact Form
-In-app feedback and support messages stored to Supabase.
+3. Run the app
 
-# setup #
-1. Install dependencies npm install
-   
-2. Create .env.local NEXT_PUBLIC_SUPABASE_URL=your_supabase_url NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key GROQ_API_KEY=your_groq_api_key
-   
-3. Run dev server npm run dev
+```bash
+npm run dev
+```
 
-# npm scripts #
-npm run dev - Start Next.js dev server
+## Scripts
 
-npm run build - Production build
+- `npm run dev` — start the development server
+- `npm run build` — build for production
+- `npm run start` — run the production server
+- `npm run lint` — run linting
 
-npm run start - Run production server
+## Required Supabase Tables
 
-npm run lint - Run ESLint + Prettier checks
-
-npm run format - Auto-format all files with Prettier
-
-# 🔧 tech stack #
-Next.js 15 - Framework
-
-Supabase - DB + Auth
-
-Groq API - AI Engine
-
-shadcn/ui - UI Library
-
-Recharts - Charts
-
-TanStack Query - Data Fetching
-
-React Hook Form - Forms
-
-Cloudflare - Deployment
-
-Zod - Validation
-
-Tailwind v4 - Styling
-
+- `transactions` with columns: `id`, `user_id`, `amount`, `type`, `category`, `description`, `date`, `created_at`
+- `budgets` with columns: `id`, `user_id`, `category`, `limit_amount`, `month`, `created_at`
+- `contact_messages` with columns: `id`, `name`, `email`, `subject`, `message`, `source`, `created_at`

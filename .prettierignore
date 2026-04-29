@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 node_modules
 dist
 .output
@@ -7,3 +8,14 @@ src
 pnpm-lock.yaml
 package-lock.json
 routeTree.gen.ts
+=======
+node_modules
+dist
+.output
+.vinxi
+.next
+src
+pnpm-lock.yaml
+package-lock.json
+routeTree.gen.ts
+>>>>>>> 1960890c2f79000680efa687bd96e6c79b4140f3

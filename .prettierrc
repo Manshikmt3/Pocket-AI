@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "printWidth": 100,
   "semi": true,
@@ -5,3 +6,12 @@
   "trailingComma": "all",
   "endOfLine": "auto"
 }
+=======
+{
+  "printWidth": 100,
+  "semi": true,
+  "singleQuote": false,
+  "trailingComma": "all",
+  "endOfLine": "auto"
+}
+>>>>>>> 1960890c2f79000680efa687bd96e6c79b4140f3

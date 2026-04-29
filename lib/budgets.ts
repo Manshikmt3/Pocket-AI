@@ -32,7 +32,8 @@ export async function fetchBudgetsForUser(userId: string, month?: string) {
     .order("category", { ascending: true });
 
   if (month) {
-    query = query.eq("month", month);
+    const dateValue = month.length === 7 ? `${month}-01` : month;
+    query = query.eq("month", dateValue);
   }
 
   const { data, error } = await query;
@@ -41,7 +42,11 @@ export async function fetchBudgetsForUser(userId: string, month?: string) {
     throw new Error(error.message);
   }
 
-  return (data ?? []) as BudgetRecord[];
+  const budgets = (data ?? []) as BudgetRecord[];
+  return budgets.map((b) => ({
+    ...b,
+    month: b.month.slice(0, 7), // Ensure YYYY-MM format
+  }));
 }
 
 export async function upsertBudgetForUser(
@@ -49,25 +54,56 @@ export async function upsertBudgetForUser(
   input: z.infer<typeof upsertBudgetSchema>,
 ) {
   const supabase = await createSupabaseServerClient();
-  const { data, error } = await supabase
+  const monthDate = `${input.month}-01`;
+
+  // First, check if a budget for this category and month already exists
+  const { data: existing, error: fetchError } = await supabase
     .from(BUDGETS_TABLE)
-    .upsert(
-      {
+    .select("id")
+    .eq("user_id", userId)
+    .eq("category", input.category)
+    .eq("month", monthDate)
+    .maybeSingle();
+
+  if (fetchError) {
+    throw new Error(fetchError.message);
+  }
+
+  let result;
+
+  if (existing) {
+    // Update existing budget
+    const { data, error } = await supabase
+      .from(BUDGETS_TABLE)
+      .update({ limit_amount: input.limit_amount })
+      .eq("id", existing.id)
+      .select("id, user_id, category, limit_amount, month, created_at")
+      .single();
+
+    if (error) throw new Error(error.message);
+    result = data;
+  } else {
+    // Insert new budget
+    const { data, error } = await supabase
+      .from(BUDGETS_TABLE)
+      .insert({
         user_id: userId,
         category: input.category,
         limit_amount: input.limit_amount,
-        month: input.month,
-      },
-      { onConflict: "user_id,category,month" },
-    )
-    .select("id, user_id, category, limit_amount, month, created_at")
-    .single();
+        month: monthDate,
+      })
+      .select("id, user_id, category, limit_amount, month, created_at")
+      .single();
 
-  if (error) {
-    throw new Error(error.message);
+    if (error) throw new Error(error.message);
+    result = data;
   }
 
-  return data as BudgetRecord;
+  const budget = result as BudgetRecord;
+  return {
+    ...budget,
+    month: budget.month.slice(0, 7), // Ensure YYYY-MM format
+  };
 }
 
 export async function deleteBudgetForUser(userId: string, budgetId: string) {

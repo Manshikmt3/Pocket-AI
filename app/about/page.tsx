@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "About — Wallet AI",
-  description: "Learn how Wallet AI helps you build better money habits.",
+  title: "About — Pocket AI",
+  description: "Learn how Pocket AI helps you build better money habits.",
 };
 
 const values = [
@@ -27,7 +27,7 @@ export default function AboutPage() {
     <div className="min-h-screen bg-background">
       <header className="flex items-center justify-between px-6 py-5 md:px-12">
         <Link href="/" className="text-lg font-semibold text-foreground">
-          Wallet AI
+          Pocket AI
         </Link>
         <div className="flex items-center gap-3 text-sm">
           <Link href="/premium" className="text-muted-foreground hover:text-foreground">
@@ -46,7 +46,7 @@ export default function AboutPage() {
             Empowering smarter financial decisions
           </h1>
           <p className="max-w-2xl text-lg text-muted-foreground">
-            Wallet AI is a finance companion built for modern creators, founders, and households. We
+            Pocket AI is a finance companion built for modern creators, founders, and households. We
             combine secure financial data with AI guidance so you always know where your money is
             headed.
           </p>
@@ -63,9 +63,9 @@ export default function AboutPage() {
 
         <section className="mt-16 grid gap-8 md:grid-cols-[1.2fr_0.8fr]">
           <div className="space-y-3">
-            <h2 className="text-2xl font-semibold text-foreground">What makes Wallet AI unique</h2>
+            <h2 className="text-2xl font-semibold text-foreground">What makes Pocket AI unique</h2>
             <p className="text-muted-foreground">
-              We believe finance tools should feel like a co-pilot, not a spreadsheet. Wallet AI
+              We believe finance tools should feel like a co-pilot, not a spreadsheet. Pocket AI
               blends budgeting, automation, and AI insights so you can take action faster.
             </p>
             <p className="text-muted-foreground">

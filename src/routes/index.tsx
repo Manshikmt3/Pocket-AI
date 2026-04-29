@@ -1,17 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Wallet, ArrowRight, Shield, Zap, Brain } from "lucide-react";
+import { wallet, ArrowRight, Shield, Zap, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Wallet AI — Smart Finance Management" },
+      { title: "Pocket AI — Smart Finance Management" },
       {
         name: "description",
         content:
           "AI-powered personal finance management. Track expenses, analyze spending patterns, and get smart insights.",
       },
-      { property: "og:title", content: "Wallet AI — Smart Finance Management" },
+      { property: "og:title", content: "Pocket AI — Smart Finance Management" },
       { property: "og:description", content: "AI-powered personal finance management." },
     ],
   }),
@@ -42,8 +42,8 @@ function LandingPage() {
       {/* Nav */}
       <nav className="flex items-center justify-between px-6 py-4 md:px-12">
         <div className="flex items-center gap-2">
-          <Wallet className="h-7 w-7 text-primary" />
-          <span className="text-xl font-bold text-foreground">Wallet AI</span>
+          <wallet className="h-7 w-7 text-primary" />
+          <span className="text-xl font-bold text-foreground">Pocket AI</span>
         </div>
         <div className="flex items-center gap-3">
           <Link to="/login">
@@ -111,7 +111,7 @@ function LandingPage() {
 
       {/* Footer */}
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        © 2026 Wallet AI. All rights reserved.
+        © 2026 Pocket AI. All rights reserved.
       </footer>
     </div>
   );

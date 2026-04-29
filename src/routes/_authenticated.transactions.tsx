@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/_authenticated/transactions")({
   head: () => ({
     meta: [
-      { title: "Transactions — Wallet AI" },
+      { title: "Transactions — Pocket AI" },
       { name: "description", content: "View and manage your transactions." },
     ],
   }),

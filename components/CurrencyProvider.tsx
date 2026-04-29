@@ -30,7 +30,7 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     setMounted(true);
-    const saved = localStorage.getItem("wallet_ai_currency") as Currency;
+    const saved = localStorage.getItem("pocket_ai_currency") as Currency;
     if (saved && Object.keys(RATES).includes(saved)) {
       setCurrencyState(saved);
     }
@@ -38,7 +38,7 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
 
   const setCurrency = (c: Currency) => {
     setCurrencyState(c);
-    localStorage.setItem("wallet_ai_currency", c);
+    localStorage.setItem("pocket_ai_currency", c);
   };
 
   const formatAmount = (amount: number) => {

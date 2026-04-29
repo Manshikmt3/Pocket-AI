@@ -16,7 +16,7 @@ import { fetchBudgetsForUser } from "@/lib/budgets";
 import { fetchTransactionsForUser, getAuthenticatedUserId } from "@/lib/transactions";
 
 export const metadata: Metadata = {
-  title: "Dashboard — Wallet AI",
+  title: "Dashboard — Pocket AI",
   description: "Your financial overview at a glance.",
 };
 

@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
-import { Wallet, Loader2 } from "lucide-react";
+import { wallet, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,8 +9,8 @@ import { supabase } from "@/lib/supabase";
 export const Route = createFileRoute("/signup")({
   head: () => ({
     meta: [
-      { title: "Sign Up — Wallet AI" },
-      { name: "description", content: "Create your Wallet AI account." },
+      { title: "Sign Up — Pocket AI" },
+      { name: "description", content: "Create your Pocket AI account." },
     ],
   }),
   component: SignupPage,
@@ -58,8 +58,8 @@ function SignupPage() {
       <div className="w-full max-w-sm">
         <div className="mb-8 text-center">
           <Link to="/" className="inline-flex items-center gap-2 mb-6">
-            <Wallet className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold text-foreground">Wallet AI</span>
+            <wallet className="h-8 w-8 text-primary" />
+            <span className="text-2xl font-bold text-foreground">Pocket AI</span>
           </Link>
           <h1 className="text-xl font-semibold text-foreground">Create account</h1>
           <p className="mt-1 text-sm text-muted-foreground">Start managing your finances with AI</p>

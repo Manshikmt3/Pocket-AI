@@ -5,11 +5,11 @@ import { Navbar } from "@/components/Navbar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Wallet AI — Smart Finance Management",
+  title: "Pocket AI — Smart Finance Management",
   description:
     "AI-powered personal finance management. Track expenses, analyze spending patterns, and get smart insights.",
   openGraph: {
-    title: "Wallet AI — Smart Finance Management",
+    title: "Pocket AI — Smart Finance Management",
     description: "AI-powered personal finance management.",
   },
 };
@@ -88,7 +88,7 @@ export default function LandingPage() {
       </section>
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        © 2026 Wallet AI. All rights reserved.
+        © 2026 Pocket AI. All rights reserved.
       </footer>
     </div>
   );

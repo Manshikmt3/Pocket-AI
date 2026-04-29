@@ -13,10 +13,19 @@ export async function createSupabaseServerClient() {
         return cookieStore.get(name)?.value;
       },
       set(name: string, value: string, options: Partial<ResponseCookie>) {
-        cookieStore.set({ name, value, ...options });
+        try {
+          cookieStore.set({ name, value, ...options });
+        } catch {
+          // Silently ignore — cookies can't be set during Server Component rendering.
+          // This is expected when Supabase refreshes tokens in a read-only context.
+        }
       },
       remove(name: string, options: Partial<ResponseCookie>) {
-        cookieStore.set({ name, value: "", ...options });
+        try {
+          cookieStore.set({ name, value: "", ...options });
+        } catch {
+          // Silently ignore — same as above.
+        }
       },
     },
   });

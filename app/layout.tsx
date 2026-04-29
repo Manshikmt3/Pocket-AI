@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Wallet AI",
+  title: "Pocket AI",
   description: "AI-powered personal finance management",
 };
 

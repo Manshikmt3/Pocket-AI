@@ -1,6 +1,6 @@
-# Wallet AI — Next.js App Router
+# Pocket AI — Next.js App Router
 
-Production-ready migration of the Wallet AI finance app to Next.js (App Router) with Tailwind CSS, shadcn/ui, and Supabase.
+Production-ready migration of the Pocket AI finance app to Next.js (App Router) with Tailwind CSS, shadcn/ui, and Supabase.
 
 ## Setup
 

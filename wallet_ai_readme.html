@@ -1,0 +1,519 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .rm-root {
+    font-family: 'Syne', sans-serif;
+    color: var(--color-text-primary);
+    padding: 0 0 3rem;
+    max-width: 680px;
+  }
+
+  .hero {
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 2.5rem 2rem 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-title {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-title span {
+    color: var(--color-text-secondary);
+  }
+
+  .hero-desc {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 520px;
+    margin-bottom: 1.5rem;
+  }
+
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .badge {
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 0.5px solid var(--color-border-secondary);
+    color: var(--color-text-secondary);
+    background: var(--color-background-primary);
+  }
+
+  .badge.green { background: #EAF3DE; color: #3B6D11; border-color: #97C459; }
+  .badge.blue  { background: #E6F1FB; color: #185FA5; border-color: #85B7EB; }
+  .badge.amber { background: #FAEEDA; color: #854F0B; border-color: #EF9F27; }
+  .badge.purple{ background: #EEEDFE; color: #534AB7; border-color: #AFA9EC; }
+
+  .section { margin-bottom: 2rem; }
+
+  .section-label {
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--color-border-tertiary);
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+  }
+
+  .feature-card {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1rem 1.1rem;
+  }
+
+  .feature-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+    font-size: 15px;
+  }
+
+  .feature-title {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .feature-desc {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+  }
+
+  .tech-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 0.6rem 0.9rem;
+  }
+
+  .tech-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .tech-name {
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .tech-role {
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    margin-left: auto;
+  }
+
+  .code-block {
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1rem 1.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    overflow-x: auto;
+  }
+
+  .code-block .comment { color: var(--color-text-tertiary); }
+  .code-block .key { color: #185FA5; }
+  .code-block .val { color: #3B6D11; }
+  .code-block .cmd { color: #854F0B; }
+
+  .db-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .db-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--color-text-tertiary);
+    padding: 0 0.75rem 0.5rem;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .db-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    color: var(--color-text-secondary);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .db-table td:first-child { color: var(--color-text-primary); font-weight: 500; }
+  .db-table tr:last-child td { border-bottom: none; }
+
+  .type-pill {
+    display: inline-block;
+    font-size: 10px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .pk { background: #FAEEDA; color: #854F0B; }
+  .fk { background: #E6F1FB; color: #185FA5; }
+  .dt { background: #F1EFE8; color: #5F5E5A; }
+
+  .route-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .route-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.6rem 0.9rem;
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    font-size: 12px;
+  }
+
+  .method {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 7px;
+    border-radius: 4px;
+    min-width: 44px;
+    text-align: center;
+  }
+
+  .get { background: #EAF3DE; color: #3B6D11; }
+  .post { background: #E6F1FB; color: #185FA5; }
+  .delete { background: #FCEBEB; color: #A32D2D; }
+  .put { background: #FAEEDA; color: #854F0B; }
+
+  .route-path {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--color-text-primary);
+    font-size: 12px;
+    flex: 1;
+  }
+
+  .route-desc {
+    color: var(--color-text-tertiary);
+    font-size: 11px;
+  }
+
+  .guard-badge {
+    font-size: 10px;
+    padding: 1px 6px;
+    background: #EEEDFE;
+    color: #534AB7;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .info-card {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1rem 1.1rem;
+  }
+
+  .info-card-title {
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-primary);
+  }
+
+  .script-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .script-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .script-cmd {
+    font-family: 'JetBrains Mono', monospace;
+    color: #185FA5;
+  }
+
+  .script-sep {
+    color: var(--color-text-tertiary);
+  }
+
+  .script-desc {
+    color: var(--color-text-secondary);
+    font-size: 11px;
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--color-border-tertiary);
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+    font-family: 'JetBrains Mono', monospace;
+  }
+</style>
+
+<div class="rm-root">
+
+  <div class="hero">
+    <div class="hero-eyebrow">README.md — pocket_ai</div>
+    <div class="hero-title">Wallet AI<span> / Smart Finance</span></div>
+    <div class="hero-desc">A full-stack AI-powered personal finance platform. Track income and expenses, set budgets, visualize spending trends, and get AI-driven insights — all in a secure, real-time dashboard.</div>
+    <div class="badge-row">
+      <span class="badge green">Next.js 15</span>
+      <span class="badge blue">Supabase</span>
+      <span class="badge amber">Groq AI</span>
+      <span class="badge purple">shadcn/ui</span>
+      <span class="badge">Tailwind v4</span>
+      <span class="badge">TanStack Query</span>
+      <span class="badge">TypeScript</span>
+      <span class="badge">Cloudflare</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">core features</div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#E6F1FB;">📊</div>
+        <div class="feature-title">Dashboard</div>
+        <div class="feature-desc">Real-time overview of balance, income vs expenses, and budget health.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#EAF3DE;">💸</div>
+        <div class="feature-title">Transactions</div>
+        <div class="feature-desc">Log, categorize, and filter income and expense entries by date or type.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#FAEEDA;">📋</div>
+        <div class="feature-title">Budget Manager</div>
+        <div class="feature-desc">Set monthly spending limits per category with live usage tracking.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#EEEDFE;">📈</div>
+        <div class="feature-title">Reports</div>
+        <div class="feature-desc">Interactive charts (Recharts) for spending trends and category breakdowns.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#FAEEDA;">🤖</div>
+        <div class="feature-title">AI Insights</div>
+        <div class="feature-desc">Groq-powered assistant for spending analysis, budget advice, and queries.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#FCEBEB;">🔐</div>
+        <div class="feature-title">Auth & Guards</div>
+        <div class="feature-desc">Supabase Auth with middleware-protected routes and redirect handling.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#E1F5EE;">👤</div>
+        <div class="feature-title">User Profile</div>
+        <div class="feature-desc">Manage account details and preferences on the profile page.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#F1EFE8;">📬</div>
+        <div class="feature-title">Contact Form</div>
+        <div class="feature-desc">In-app feedback and support messages stored to Supabase.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">setup</div>
+    <div class="code-block">
+<span class="comment"># 1. Install dependencies</span>
+<span class="cmd">npm install</span>
+
+<span class="comment"># 2. Create .env.local</span>
+<span class="key">NEXT_PUBLIC_SUPABASE_URL</span>=<span class="val">your_supabase_url</span>
+<span class="key">NEXT_PUBLIC_SUPABASE_ANON_KEY</span>=<span class="val">your_supabase_anon_key</span>
+<span class="key">GROQ_API_KEY</span>=<span class="val">your_groq_api_key</span>
+
+<span class="comment"># 3. Run dev server</span>
+<span class="cmd">npm run dev</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">npm scripts</div>
+    <div class="info-card">
+      <div class="script-list">
+        <div class="script-item"><span class="script-cmd">npm run dev</span><span class="script-sep">—</span><span class="script-desc">Start Next.js dev server</span></div>
+        <div class="script-item"><span class="script-cmd">npm run build</span><span class="script-sep">—</span><span class="script-desc">Production build</span></div>
+        <div class="script-item"><span class="script-cmd">npm run start</span><span class="script-sep">—</span><span class="script-desc">Run production server</span></div>
+        <div class="script-item"><span class="script-cmd">npm run lint</span><span class="script-sep">—</span><span class="script-desc">Run ESLint + Prettier checks</span></div>
+        <div class="script-item"><span class="script-cmd">npm run format</span><span class="script-sep">—</span><span class="script-desc">Auto-format all files with Prettier</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">route map</div>
+    <div class="route-list">
+      <div class="route-item"><span class="method get">GET</span><span class="route-path">/dashboard</span><span class="guard-badge">auth</span><span class="route-desc">Financial overview</span></div>
+      <div class="route-item"><span class="method get">GET</span><span class="route-path">/transactions</span><span class="guard-badge">auth</span><span class="route-desc">Transaction list</span></div>
+      <div class="route-item"><span class="method post">POST</span><span class="route-path">/transactions</span><span class="guard-badge">auth</span><span class="route-desc">Add transaction</span></div>
+      <div class="route-item"><span class="method get">GET</span><span class="route-path">/budget</span><span class="guard-badge">auth</span><span class="route-desc">Budget management</span></div>
+      <div class="route-item"><span class="method put">PUT</span><span class="route-path">/budget/:id</span><span class="guard-badge">auth</span><span class="route-desc">Update budget limit</span></div>
+      <div class="route-item"><span class="method get">GET</span><span class="route-path">/reports</span><span class="guard-badge">auth</span><span class="route-desc">Analytics & charts</span></div>
+      <div class="route-item"><span class="method get">GET</span><span class="route-path">/profile</span><span class="guard-badge">auth</span><span class="route-desc">User account settings</span></div>
+      <div class="route-item"><span class="method get">GET</span><span class="route-path">/auth/login</span><span class="route-desc">Login page</span></div>
+      <div class="route-item"><span class="method post">POST</span><span class="route-path">/api/ai</span><span class="guard-badge">auth</span><span class="route-desc">Groq AI chat endpoint</span></div>
+      <div class="route-item"><span class="method post">POST</span><span class="route-path">/api/contact</span><span class="route-desc">Contact form submission</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">database schema</div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+
+      <div class="info-card">
+        <div class="info-card-title">transactions</div>
+        <table class="db-table">
+          <thead><tr><th>column</th><th>type</th><th>notes</th></tr></thead>
+          <tbody>
+            <tr><td>id</td><td><span class="type-pill pk">PK</span></td><td>uuid primary key</td></tr>
+            <tr><td>user_id</td><td><span class="type-pill fk">FK</span></td><td>references auth.users</td></tr>
+            <tr><td>amount</td><td><span class="type-pill dt">numeric</span></td><td>positive value</td></tr>
+            <tr><td>type</td><td><span class="type-pill dt">text</span></td><td>income | expense</td></tr>
+            <tr><td>category</td><td><span class="type-pill dt">text</span></td><td>food, rent, salary…</td></tr>
+            <tr><td>description</td><td><span class="type-pill dt">text</span></td><td>optional note</td></tr>
+            <tr><td>date</td><td><span class="type-pill dt">date</span></td><td>transaction date</td></tr>
+            <tr><td>created_at</td><td><span class="type-pill dt">timestamptz</span></td><td>auto-set</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="two-col">
+        <div class="info-card">
+          <div class="info-card-title">budgets</div>
+          <table class="db-table">
+            <thead><tr><th>column</th><th>type</th></tr></thead>
+            <tbody>
+              <tr><td>id</td><td><span class="type-pill pk">PK</span></td></tr>
+              <tr><td>user_id</td><td><span class="type-pill fk">FK</span></td></tr>
+              <tr><td>category</td><td><span class="type-pill dt">text</span></td></tr>
+              <tr><td>limit_amount</td><td><span class="type-pill dt">numeric</span></td></tr>
+              <tr><td>month</td><td><span class="type-pill dt">date</span></td></tr>
+              <tr><td>created_at</td><td><span class="type-pill dt">timestamptz</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info-card">
+          <div class="info-card-title">contact_messages</div>
+          <table class="db-table">
+            <thead><tr><th>column</th><th>type</th></tr></thead>
+            <tbody>
+              <tr><td>id</td><td><span class="type-pill pk">PK</span></td></tr>
+              <tr><td>name</td><td><span class="type-pill dt">text</span></td></tr>
+              <tr><td>email</td><td><span class="type-pill dt">text</span></td></tr>
+              <tr><td>subject</td><td><span class="type-pill dt">text</span></td></tr>
+              <tr><td>message</td><td><span class="type-pill dt">text</span></td></tr>
+              <tr><td>source</td><td><span class="type-pill dt">text</span></td></tr>
+              <tr><td>created_at</td><td><span class="type-pill dt">timestamptz</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">tech stack</div>
+    <div class="tech-grid">
+      <div class="tech-row"><div class="tech-dot" style="background:#378ADD;"></div><span class="tech-name">Next.js 15</span><span class="tech-role">Framework</span></div>
+      <div class="tech-row"><div class="tech-dot" style="background:#3B6D11;"></div><span class="tech-name">Supabase</span><span class="tech-role">DB + Auth</span></div>
+      <div class="tech-row"><div class="tech-dot" style="background:#EF9F27;"></div><span class="tech-name">Groq API</span><span class="tech-role">AI Engine</span></div>
+      <div class="tech-row"><div class="tech-dot" style="background:#7F77DD;"></div><span class="tech-name">shadcn/ui</span><span class="tech-role">UI Library</span></div>
+      <div class="tech-row"><div class="tech-dot" style="background:#D85A30;"></div><span class="tech-name">Recharts</span><span class="tech-role">Charts</span></div>
+      <div class="tech-row"><div class="tech-dot" style="background:#1D9E75;"></div><span class="tech-name">TanStack Query</span><span class="tech-role">Data Fetching</span></div>
+      <div class="tech-row"><div class="tech-dot" style="background:#5F5E5A;"></div><span class="tech-name">React Hook Form</span><span class="tech-role">Forms</span></div>
+      <div class="tech-row"><div class="tech-dot" style="background:#185FA5;"></div><span class="tech-name">Cloudflare</span><span class="tech-role">Deployment</span></div>
+      <div class="tech-row"><div class="tech-dot" style="background:#888780;"></div><span class="tech-name">Zod</span><span class="tech-role">Validation</span></div>
+      <div class="tech-row"><div class="tech-dot" style="background:#BA7517;"></div><span class="tech-name">Tailwind v4</span><span class="tech-role">Styling</span></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>pocket_ai · Next.js App Router</span>
+    <span>MIT License</span>
+  </div>
+
+</div>

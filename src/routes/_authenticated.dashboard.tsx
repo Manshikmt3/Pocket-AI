@@ -4,7 +4,7 @@ import { LayoutDashboard, TrendingUp, TrendingDown, DollarSign } from "lucide-re
 export const Route = createFileRoute("/_authenticated/dashboard")({
   head: () => ({
     meta: [
-      { title: "Dashboard — Wallet AI" },
+      { title: "Dashboard — Pocket AI" },
       { name: "description", content: "Your financial overview at a glance." },
     ],
   }),

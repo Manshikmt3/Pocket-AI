@@ -1,5 +1,5 @@
 import { Link, Outlet, useLocation } from "@tanstack/react-router";
-import { LayoutDashboard, ArrowLeftRight, LogOut, Wallet, Menu, X } from "lucide-react";
+import { LayoutDashboard, ArrowLeftRight, LogOut, wallet, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -30,8 +30,8 @@ export function AppLayout({ onSignOut }: { onSignOut: () => void }) {
       >
         {/* Logo */}
         <div className="flex h-16 items-center gap-2 border-b border-sidebar-border px-6">
-          <Wallet className="h-6 w-6 text-primary" />
-          <span className="text-lg font-bold text-sidebar-foreground">Wallet AI</span>
+          <wallet className="h-6 w-6 text-primary" />
+          <span className="text-lg font-bold text-sidebar-foreground">Pocket AI</span>
         </div>
 
         {/* Nav */}

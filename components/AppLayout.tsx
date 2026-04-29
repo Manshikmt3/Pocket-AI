@@ -59,7 +59,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           {/* Logo */}
           <div className="flex h-16 items-center gap-2 border-b border-sidebar-border px-6">
             <Wallet className="h-6 w-6 text-primary" />
-            <span className="text-lg font-bold text-sidebar-foreground">Wallet AI</span>
+            <span className="text-lg font-bold text-sidebar-foreground">Pocket AI</span>
           </div>
 
           {/* Nav */}
@@ -88,6 +88,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           <div className="border-t border-sidebar-border p-4">
             <button
               onClick={handleSignOut}
+              suppressHydrationWarning
               className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-sidebar-foreground/70 transition-colors hover:bg-sidebar-accent hover:text-destructive"
             >
               <LogOut className="h-5 w-5" />

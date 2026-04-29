@@ -9,7 +9,7 @@ export function Navbar() {
     <nav className="flex items-center justify-between px-6 py-4 md:px-12">
       <div className="flex items-center gap-2">
         <Wallet className="h-7 w-7 text-primary" />
-        <span className="text-xl font-bold text-foreground">Wallet AI</span>
+        <span className="text-xl font-bold text-foreground">Pocket AI</span>
       </div>
       <div className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
         <Link href="/about" className="hover:text-foreground">

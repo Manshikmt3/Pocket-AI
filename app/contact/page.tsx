@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/app/contact/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact — Wallet AI",
-  description: "Get in touch with the Wallet AI team.",
+  title: "Contact — Pocket AI",
+  description: "Get in touch with the Pocket AI team.",
 };
 
 export default function ContactPage() {
@@ -12,7 +12,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-background">
       <header className="flex items-center justify-between px-6 py-5 md:px-12">
         <Link href="/" className="text-lg font-semibold text-foreground">
-          Wallet AI
+          Pocket AI
         </Link>
         <div className="flex items-center gap-3 text-sm">
           <Link href="/about" className="text-muted-foreground hover:text-foreground">
@@ -35,9 +35,9 @@ export default function ContactPage() {
               Tell us what you need. We usually respond within one business day.
             </p>
             <div className="rounded-2xl border border-border/60 bg-card p-6 text-sm text-muted-foreground">
-              <p className="font-semibold text-foreground">Wallet AI HQ</p>
+              <p className="font-semibold text-foreground">Pocket AI HQ</p>
               <p className="mt-2">San Francisco, CA</p>
-              <p className="mt-4">support@walletai.app</p>
+              <p className="mt-4">support@pocketai.app</p>
               <p className="mt-1">+1 (555) 215-1414</p>
             </div>
           </div>

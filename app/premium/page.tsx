@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Premium — Wallet AI",
+  title: "Premium — Pocket AI",
   description: "Unlock premium insights, automation, and concierge support.",
 };
 
@@ -34,7 +34,7 @@ export default function PremiumPage() {
     <div className="min-h-screen bg-background">
       <header className="flex items-center justify-between px-6 py-5 md:px-12">
         <Link href="/" className="text-lg font-semibold text-foreground">
-          Wallet AI
+          Pocket AI
         </Link>
         <div className="flex items-center gap-3 text-sm">
           <Link href="/about" className="text-muted-foreground hover:text-foreground">

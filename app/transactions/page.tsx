@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { TransactionsClient } from "@/app/transactions/TransactionsClient";
 
 export const metadata: Metadata = {
-  title: "Transactions — Wallet AI",
+  title: "Transactions — Pocket AI",
   description: "View and manage your transactions.",
 };
 

@@ -3,7 +3,7 @@ import { getAuthenticatedUserId } from "@/lib/transactions";
 import { BudgetClient } from "@/app/budget/BudgetClient";
 
 export const metadata: Metadata = {
-  title: "Budgets — Wallet AI",
+  title: "Budgets — Pocket AI",
   description: "Plan monthly spending limits by category.",
 };
 

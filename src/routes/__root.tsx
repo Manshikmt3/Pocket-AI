@@ -29,7 +29,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Wallet AI" },
+      { title: "Pocket AI" },
       { name: "description", content: "AI-powered personal finance management" },
     ],
     links: [

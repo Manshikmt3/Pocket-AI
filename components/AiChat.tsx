@@ -14,7 +14,7 @@ export function AiChat() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      text: "Hello! I'm your Wallet AI assistant. Ask me anything about your finances, budgets, or spending habits.",
+      text: "Hello! I'm your Pocket AI assistant. Ask me anything about your finances, budgets, or spending habits.",
     },
   ]);
   const [input, setInput] = useState("");

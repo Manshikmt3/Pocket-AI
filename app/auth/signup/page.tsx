@@ -55,7 +55,7 @@ export default function SignupPage() {
         <div className="mb-8 text-center">
           <Link href="/" className="inline-flex items-center gap-2 mb-6">
             <Wallet className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold text-foreground">Wallet AI</span>
+            <span className="text-2xl font-bold text-foreground">Pocket AI</span>
           </Link>
           <h1 className="text-xl font-semibold text-foreground">Create account</h1>
           <p className="mt-1 text-sm text-muted-foreground">Start managing your finances with AI</p>

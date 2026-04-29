@@ -10,7 +10,7 @@ import { fetchTransactionsForUser, getAuthenticatedUserId } from "@/lib/transact
 import { ReportsClient, type ReportNotification } from "@/app/reports/ReportsClient";
 
 export const metadata: Metadata = {
-  title: "Reports — Wallet AI",
+  title: "Reports — Pocket AI",
   description: "Monthly spending trends and smart finance notifications.",
 };
 

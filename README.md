@@ -1,7 +1,8 @@
 <img width="1885" height="725" alt="project photo" src="https://github.com/user-attachments/assets/94816dd6-4270-45d6-b45e-99d8045c9dac" />
-# 💰 Pocket AI — Smart Finance Management Platform
 
-> A full-stack AI-powered personal finance platform. Track income and expenses, set budgets, visualize spending trends, and get AI-driven insights — all in a secure, real-time dashboard.
+# 💰 Pocket AI — Smart Finance Management Platform #
+
+A full-stack AI-powered personal finance platform. Track income and expenses, set budgets, visualize spending trends, and get AI-driven insights — all in a secure, real-time dashboard.
 
 <p align="left">
   <img src="https://img.shields.io/badge/Next.js_15-000000?style=flat-square&logo=next.js&logoColor=white" />

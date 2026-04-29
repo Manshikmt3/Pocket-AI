@@ -1,8 +1,6 @@
 {
   "name": "pocket_ai",
   "private": true,
-  "sideEffects": false,
-  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
